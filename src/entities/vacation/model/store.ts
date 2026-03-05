@@ -10,6 +10,8 @@ interface VacationState {
   setCountry: (country: string) => void;
   setResort: (resort: string) => void;
   setProgram: (program: string) => void;
+
+  reset: () => void;
 }
 
 export const useVacationStore = create<VacationState>((set) => ({
@@ -34,4 +36,12 @@ export const useVacationStore = create<VacationState>((set) => ({
     }),
 
   setProgram: (program) => set({ program }),
+
+  reset: () =>
+    set({
+      name: "",
+      country: "",
+      resort: "",
+      program: "",
+    }),
 }));
