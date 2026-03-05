@@ -18,7 +18,7 @@
   background: #fafafa;
 }
 
-.card > :first-child > span {
+.card > :first-child > span:nth-of-type(2) {
   word-break: break-all;
   text-align: right;
   max-width: 50%;
