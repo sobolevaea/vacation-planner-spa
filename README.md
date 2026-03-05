@@ -1,20 +1,54 @@
-# Vacation Planner SPA
+# Проект: "Планировщик отпуска"
 
-Single Page Application for planning vacations.
+> SPA для планирования идеального отпуска.
 
-## Tech Stack
+🔗 **[Live Demo](https://vacation-planner-spa.vercel.app/)**
 
-- React (functional components + hooks)
+## Возможности
+
+- Зависимые поля формы (Страна → Курорт → Программа)
+- Mock API с имитацией задержки сети
+- Адаптивный дизайн с CSS Modules
+- SPA маршрутизация с React Router
+
+## Стек технологий
+
+- React (функциональные компоненты + хуки)
 - TypeScript
+- Zustand
 - React Router
-- Zustand (state management)
 - Feature-Sliced Design (FSD)
 - CSS Modules
+- Vite
 
-## Features
+## Структура проекта
 
-- Dependent select fields (Country → Resort → Program)
-- Mocked API with network delay simulation
-- Form validation
-- Results page with selected vacation plan
-- SPA routing
+```
+src/
+├── app/          # Настройка приложения
+├── entities/     # Бизнес-сущности (Vacation)
+├── pages/        # Страницы приложения
+└── shared/       # Общие утилиты и API
+```
+
+## Быстрый старт
+
+| Команда | Описание |
+|---------|----------|
+| `make install` | Установить зависимости |
+| `make run` | Запустить dev сервер |
+| `make build` | Собрать для продакшена |
+| `make lint` | Проверить код ESLint |
+| `make preview` | Просмотр production сборки локально |
+
+## Как это работает
+
+1. **Введите имя путешественника** и выберите страну
+2. **Выберите курорт** (загружается в зависимости от страны)
+3. **Выберите программу отдыха** (загружается в зависимости от курорта)
+4. **Нажмите "Запланировать отпуск"** и посмотрите результаты
+5. **Создайте новый план** или вернитесь назад
+
+## Деплой
+
+Развёрнуто на [Vercel](https://vercel.com/) с автоматическим развёртыванием из ветки `main`.
