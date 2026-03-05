@@ -2,10 +2,9 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import styles from "./VacationFormPage.module.css";
+import { COUNTRIES } from "../../shared/constants/countries";
 import { useVacationStore } from "../../entities/vacation/model/store.ts";
 import { fetchResorts, fetchPrograms } from "../../shared/api/mockApi.ts";
-
-const countries = ["Италия", "Греция", "Таиланд"];
 
 export default function VacationFormPage() {
   const navigate = useNavigate();
@@ -25,6 +24,7 @@ export default function VacationFormPage() {
   const [programs, setPrograms] = useState<string[]>([]);
   const [loadingResorts, setLoadingResorts] = useState(false);
   const [loadingPrograms, setLoadingPrograms] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     if (!country) {
@@ -58,8 +58,13 @@ export default function VacationFormPage() {
     loadPrograms();
   }, [resort]);
 
-  const handleSubmit = (e: React.SubmitEvent) => {
+  const handleSubmit = async (e: React.SubmitEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
+
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    
+    setIsSubmitting(false);
     navigate("/vacation-plan");
   };
 
@@ -93,7 +98,7 @@ export default function VacationFormPage() {
             onChange={(e) => setCountry(e.target.value)}
           >
             <option value="">Выберите страну</option>
-            {countries.map((c) => (
+            {COUNTRIES.map((c) => (
               <option key={c}>{c}</option>
             ))}
           </select>
@@ -137,10 +142,10 @@ export default function VacationFormPage() {
 
         <button
           className={styles.button}
-          disabled={!isValid}
+          disabled={!isValid || isSubmitting}
           type="submit"
         >
-          Запланировать отпуск
+          {isSubmitting ? "Загрузка..." : "Запланировать отпуск"}
         </button>
       </form>
     </div>

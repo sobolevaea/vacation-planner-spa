@@ -26,7 +26,7 @@ export default function VacationPlanPage() {
 
       <div className={styles.card}>
         <div className={styles.row}>
-          <strong className={styles.label}>Имя путешественника</strong>
+          <span className={styles.label}>Имя путешественника</span>
           <span>{name}</span>
         </div>
 

@@ -1,0 +1,1 @@
+export const COUNTRIES = ["Италия", "Греция", "Таиланд"];

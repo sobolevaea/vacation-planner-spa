@@ -1,18 +1,5 @@
 import { create } from "zustand";
-
-interface VacationState {
-  name: string;
-  country: string;
-  resort: string;
-  program: string;
-
-  setName: (name: string) => void;
-  setCountry: (country: string) => void;
-  setResort: (resort: string) => void;
-  setProgram: (program: string) => void;
-
-  reset: () => void;
-}
+import type { VacationState } from "./types";
 
 export const useVacationStore = create<VacationState>((set) => ({
   name: "",
