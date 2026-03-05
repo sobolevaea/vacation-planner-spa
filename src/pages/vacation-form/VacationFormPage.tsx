@@ -28,12 +28,12 @@ export default function VacationFormPage() {
 
   useEffect(() => {
     if (!country) {
-      setResorts([]);
       return;
     }
 
     const loadResorts = async () => {
       setLoadingResorts(true);
+      setResorts([]);
       const data = await fetchResorts(country);
       setResorts(data);
       setLoadingResorts(false);
@@ -44,12 +44,12 @@ export default function VacationFormPage() {
 
   useEffect(() => {
     if (!resort) {
-      setPrograms([]);
       return;
     }
 
     const loadPrograms = async () => {
       setLoadingPrograms(true);
+      setPrograms([]);
       const data = await fetchPrograms(resort);
       setPrograms(data);
       setLoadingPrograms(false);
